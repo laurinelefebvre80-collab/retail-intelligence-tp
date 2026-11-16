@@ -1,0 +1,16 @@
+graph G {
+ layout=neato; overlap=false; splines=true; sep="+12"; fontname="Helvetica";
+ node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled"];
+ edge [color="#888888"];
+ node [fillcolor="#f6d5c3"]; SS [label="store_sales\n667 579 l."]; WS [label="web_sales\n668 052 l."]; SR [label="store_returns\n37 902 l."]; WR [label="web_returns\n38 487 l."];
+ INV [label="inventory\n23,3 M l."]; WC [label="web_clickstreams\n6,8 M l."]; PR [label="product_reviews\n89 991 l."];
+ node [fillcolor="#dbe9f6"]; D [label="date_dim"]; T [label="time_dim"]; I [label="item\n17 820"]; C [label="customer\n99 000"]; S [label="store\n12"]; P [label="promotion\n300"];
+ W [label="warehouse\n5"]; WP [label="web_page\n60"]; WSI [label="web_site\n30"]; SM [label="ship_mode"]; R [label="reason"]; CA [label="customer_address"]; CD [label="customer_demographics"]; HD [label="household_demographics"]; IB [label="income_band"]; IMP [label="item_marketprices"];
+ SS--D; SS--T; SS--I; SS--C; SS--S; SS--P; SS--CD; SS--HD; SS--CA;
+ WS--D; WS--I; WS--C; WS--WSI; WS--WP; WS--W; WS--SM; WS--P;
+ SR--SS [label="ticket+article", fontsize=8, color="#c0504d", penwidth=2]; WR--WS [label="commande+article", fontsize=8, color="#c0504d", penwidth=2];
+ SR--I; SR--R; SR--S; WR--I; WR--R;
+ INV--W; INV--D; INV--I [label="1 % orphelins", fontsize=8, color="#c0504d", style=dashed, penwidth=2];
+ WC--I; WC--WP; WC--D; WC--C [label="42 % vides", fontsize=8, style=dashed]; WC--WS [label="déduit", fontsize=8, style=dashed];
+ PR--I; PR--C; C--CA; C--CD; C--HD; HD--IB; IMP--I;
+}

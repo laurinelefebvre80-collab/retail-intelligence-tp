@@ -1,0 +1,22 @@
+indicateur,valeur_controle_lot_data
+KPI-01 CA net magasin (somme ss_net_paid),1150529586.37
+KPI-01 CA net web (somme ws_net_paid),1535374825.67
+KPI-02 Quantités vendues magasin,33755474.0
+KPI-02 Quantités vendues web,33724378.0
+KPI-03 Transactions magasin (tickets distincts),89100.0
+KPI-03 Transactions web (commandes distinctes),89100.0
+KPI-04 Panier moyen magasin,12912.79
+KPI-04 Panier moyen web,17232.04
+KPI-05 Taux de remise magasin (%),49.99
+KPI-05 Taux de remise web (%),50.03
+KPI-06 Évolution CA total 2004 vs 2003 (%),-0.23
+KPI-07 Part du web dans le CA total (%),57.16
+KPI-08 Taux de retour en quantité magasin (%),2.88
+KPI-08 Taux de retour en quantité web (%),2.94
+KPI-09 Montant des retours magasin (somme sr_return_amt),36688696.43
+KPI-09 Montant des retours web (somme wr_return_amt),50260175.31
+KPI-10 Marge nette magasin (somme ss_net_profit),-552553374.82
+KPI-10 Marge nette web (somme ws_net_profit),-168576494.45
+KPI-11 Stock moyen par article/entrepôt/relevé,500.1
+KPI-12 Note moyenne des avis (1 à 5),4.24
+KPI-13 Part des clics associés à une vente (%),9.87

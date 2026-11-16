@@ -1,0 +1,21 @@
+digraph G {
+ rankdir=LR; nodesep=0.12; ranksep=0.6; fontname="Helvetica";
+ node [fontname="Helvetica", fontsize=9, shape=box, style="rounded,filled"];
+ edge [fontname="Helvetica", fontsize=8, color="#777777"];
+ subgraph cluster_a {label="Sources (.dat)"; color="#999999"; style=dashed; node [fillcolor="#f2f2f2"];
+  a1 [label="store_sales · web_sales"]; a2 [label="store_returns · web_returns · reason"]; a3 [label="customer* · item · store · date_dim ..."];
+  a4 [label="inventory · warehouse"]; a5 [label="web_clickstreams · web_page"]; a6 [label="product_reviews"]; }
+ N [label="NiFi\n(batch)", fillcolor="#e8f0fb", shape=box3d];
+ subgraph cluster_b {label="Bronze"; color="#b07a4a"; style=dashed; node [fillcolor="#f3e2d3"]; b [label="bronze/tpcxbb/<lot>/<table>/"]; }
+ subgraph cluster_s {label="Silver (Parquet)"; color="#8a8a8a"; style=dashed; node [fillcolor="#e9e9e9"];
+  s1 [label="ventes"]; s2 [label="retours"]; s3 [label="référentiels"]; s4 [label="stock"]; s5 [label="clics"]; s6 [label="avis"]; sq [label="quarantaine", fillcolor="#fde2e2"]; }
+ subgraph cluster_g {label="Gold"; color="#c9a227"; style=dashed; node [fillcolor="#fbf0c9"];
+  g1 [label="fait_ventes"]; g2 [label="fait_retours"]; g3 [label="dim_produit · dim_client\ndim_magasin · dim_date"]; g4 [label="fait_stock"]; g5 [label="agrégat consultations"]; g6 [label="marts KPI"]; }
+ subgraph cluster_u {label="Consommateurs"; color="#6aa864"; style=dashed; node [fillcolor="#e3f2e1"];
+  u1 [label="Directions\nContrôle de gestion"]; u2 [label="Resp. magasin"]; u3 [label="Resp. stocks"]; u4 [label="Resp. e-commerce"]; }
+ a1 -> N [label="F1"]; a2 -> N [label="F2"]; a3 -> N [label="F3"]; a4 -> N [label="F4"]; a5 -> N [label="F5"]; a6 -> N [label="F6"];
+ N -> b;
+ b -> s1; b -> s2; b -> s3; b -> s4; b -> s5; b -> s6; b -> sq [style=dashed, label="rejets"];
+ s1 -> g1; s2 -> g2; s3 -> g3; s4 -> g4; s5 -> g5; s6 -> u4 [style=dashed];
+ g1 -> g6; g2 -> g6; g3 -> g6; g4 -> u3; g6 -> u1; g6 -> u2; g5 -> u4;
+}

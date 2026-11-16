@@ -1,0 +1,27 @@
+digraph G {
+ rankdir=TB; compound=true; nodesep=0.3; ranksep=0.35; fontname="Helvetica";
+ node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", fillcolor="#ffffff"];
+ edge [fontname="Helvetica", fontsize=8, color="#666666"];
+ subgraph cluster_src {label="1. Sources"; style="rounded,filled"; fillcolor="#f2f2f2"; color="#999999";
+   S1 [label="TPCx-BB data/\n23 tables .dat"]; S2 [label="TPCx-BB data_refresh/\n11 tables .dat"];
+   S3 [label="Sources complémentaires\n(si fournies, séparées)", style="rounded,dashed,filled"]; }
+ subgraph cluster_ing {label="2. Ingestion (batch)"; style="rounded,filled"; fillcolor="#e8f0fb"; color="#7a9cc6";
+   N [label="Apache NiFi\nlecture · métadonnées\nprovenance · empreinte"]; }
+ subgraph cluster_lake {label="Data Lake — HDFS (local) / ADLS Gen2 (Azure)"; style="rounded"; color="#555555";
+   subgraph cluster_b {label="3. Bronze / Raw"; style="rounded,filled"; fillcolor="#f3e2d3"; color="#b07a4a";
+     B [label="Fichiers .dat d'origine\nnon modifiés, par lot\nlecture seule"]; }
+   subgraph cluster_s {label="4. Silver"; style="rounded,filled"; fillcolor="#e9e9e9"; color="#8a8a8a";
+     SV [label="Parquet typé\nnettoyé · dédoublonné\ndata + refresh intégrés\nclients pseudonymisés"]; Q [label="Quarantaine\n(lignes rejetées)", fillcolor="#fde2e2"]; }
+   subgraph cluster_g {label="5. Gold"; style="rounded,filled"; fillcolor="#fbf0c9"; color="#c9a227";
+     G1 [label="Modèle en étoile\nfait_ventes · fait_retours\nfait_stock · dim_*"]; G2 [label="Data marts / agrégats KPI\n(partitionnés année/mois)"]; } }
+ subgraph cluster_exp {label="6. Exposition"; style="rounded,filled"; fillcolor="#e3f2e1"; color="#6aa864";
+   E1 [label="Tableaux de bord\npar profil métier"]; E2 [label="Analyses / notebooks\n(clics, avis)"]; }
+ SP [label="Spark / PySpark\ntraitements", shape=component, fillcolor="#e8f0fb"];
+ GOV [label="7. Supervision\n& gouvernance\n\n• journal d'ingestion\n• catalogue / dictionnaire\n• contrôles qualité\n• droits d'accès par zone\n• suivi volumes et coûts", shape=box, style="rounded,filled", fillcolor="#efe7f7"];
+ S1 -> N; S2 -> N; S3 -> N [style=dashed];
+ N -> B [label="dépôt"];
+ B -> SV [label="nettoyage\ncontrôles"]; SV -> Q [style=dashed]; SV -> G1 [label="modélisation"]; G1 -> G2 [label="agrégation"];
+ G2 -> E1; G1 -> E1; SV -> E2;
+ SP -> SV [style=dotted, arrowhead=none]; SP -> G1 [style=dotted, arrowhead=none];
+ N -> GOV [style=invis]; GOV -> SV [style=dotted, arrowhead=none, color="#9b7cc4"]; GOV -> B [style=dotted, arrowhead=none, color="#9b7cc4"];
+}

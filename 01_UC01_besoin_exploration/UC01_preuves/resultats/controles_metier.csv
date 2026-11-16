@@ -1,0 +1,36 @@
+controle,resultat,commentaire
+Période couverte data/store_sales,2001-01-01 -> 2005-12-13,1808 dates distinctes
+Période couverte data_refresh/store_sales,2005-12-13 -> 2005-12-31,19 dates distinctes
+Période couverte data/web_sales,2001-01-01 -> 2005-12-13,1808 dates distinctes
+Période couverte data_refresh/web_sales,2005-12-13 -> 2005-12-31,19 dates distinctes
+Période couverte data/store_returns,2001-01-25 -> 2007-11-14,2221 dates distinctes
+Période couverte data_refresh/store_returns,2001-08-24 -> 2007-06-02,89 dates distinctes
+Période couverte data/web_returns,2001-01-26 -> 2008-03-18,2492 dates distinctes
+Période couverte data_refresh/web_returns,2001-04-15 -> 2007-12-15,365 dates distinctes
+Période couverte data/inventory,2001-01-01 -> 2005-12-12,259 dates distinctes
+Période couverte data_refresh/inventory,2005-12-12 -> 2005-12-26,3 dates distinctes
+Période couverte data/web_clickstreams,2001-01-01 -> 2005-12-13,1808 dates distinctes
+Période couverte data_refresh/web_clickstreams,2005-12-13 -> 2005-12-31,19 dates distinctes
+Période date_dim (calendrier),1900-01-01 -> 2199-12-31,"calendrier de référence, plus large que les faits"
+store_sales : quantités <= 0,0,
+store_sales : quantité vide,0,
+store_sales : ss_net_profit < 0 (ventes à perte),495971,74.3 % des lignes
+"store_sales : ext_sales_price = quantity x sales_price (écart > 0,01)",0,
+"web_sales : ext_sales_price = quantity x sales_price (écart > 0,01)",0,
+store_sales : nb tickets distincts (ss_ticket_number),89100,lignes / ticket = 7.49
+web_sales : nb commandes distinctes (ws_order_number),89100,lignes / commande = 7.5
+store_sales : un ticket = un seul client / magasin / date ?,0,nb de tickets incohérents
+store_returns : retours sans vente d'origine (ticket+article),0,sur 37902 lignes de retour
+web_returns : retours sans vente d'origine (commande+article),0,sur 38487 lignes de retour
+store_returns : retour antérieur à la vente,0,
+store_returns : quantité retournée > quantité vendue,112,
+web_clickstreams : clics liés à une vente (wcs_sales_sk renseigné),668052,9.87 % des clics
+web_clickstreams : clics anonymes (wcs_user_sk vide),2853461,42.15 % des clics
+product_reviews : notes (pr_review_rating) min / max / moyenne,"(1, 5, 4.24)",
+item : nb catégories (i_category) distinctes,9,"Books, Clothing & Accessories, Electronics, Home & Kitchen, Movies & TV, Music, Sports & Outdoors, Tools & Home Improvement, Toys & Games"
+store : nb magasins / états,"(12, 8)",
+inventory : quantités en stock vides,5999,
+inventory : fréquence des relevés (nb dates distinctes),259,"photo périodique du stock, pas des mouvements"
+data_refresh : clés en recouvrement avec data (customer),0,0 = le refresh ajoute de nouvelles lignes (pas de mise à jour des existantes)
+data_refresh : clés en recouvrement avec data (item),0,
+data_refresh/store_sales : ventes sur article absent de data/item,56,à rapprocher de data_refresh/item

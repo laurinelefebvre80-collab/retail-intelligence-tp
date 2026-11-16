@@ -1,0 +1,24 @@
+table,cle_candidate,nb_lignes,nb_valeurs_distinctes,nb_cles_nulles,doublons,unique
+customer,c_customer_sk,99000,99000,0,0,Oui
+customer_address,ca_address_sk,49500,49500,0,0,Oui
+customer_demographics,cd_demo_sk,1920800,1920800,0,0,Oui
+household_demographics,hd_demo_sk,7200,7200,0,0,Oui
+income_band,ib_income_band_sk,20,20,0,0,Oui
+date_dim,d_date_sk,109573,109573,0,0,Oui
+time_dim,t_time_sk,86400,86400,0,0,Oui
+item,i_item_sk,17820,17820,0,0,Oui
+item,i_item_id,17820,17820,0,0,Oui
+store,s_store_sk,12,12,0,0,Oui
+warehouse,w_warehouse_sk,5,5,0,0,Oui
+promotion,p_promo_sk,300,300,0,0,Oui
+reason,r_reason_sk,35,35,0,0,Oui
+ship_mode,sm_ship_mode_sk,20,20,0,0,Oui
+web_page,wp_web_page_sk,60,60,0,0,Oui
+web_site,web_site_sk,30,30,0,0,Oui
+product_reviews,pr_review_sk,89991,89991,0,0,Oui
+item_marketprices,imp_sk,89100,89100,0,0,Oui
+store_sales,"ss_ticket_number, ss_item_sk",667579,663443,0,4136,Non
+web_sales,"ws_order_number, ws_item_sk",668052,663976,0,4076,Non
+store_returns,"sr_ticket_number, sr_item_sk",37902,37744,0,158,Non
+web_returns,"wr_order_number, wr_item_sk",38487,38337,0,150,Non
+inventory,"inv_date_sk, inv_item_sk, inv_warehouse_sk",23255100,23255100,0,0,Oui

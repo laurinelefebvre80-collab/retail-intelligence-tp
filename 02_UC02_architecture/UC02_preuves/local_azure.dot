@@ -1,0 +1,12 @@
+digraph G {
+ rankdir=TB; nodesep=0.3; fontname="Helvetica";
+ node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled"];
+ edge [color="#999999", style=dashed, dir=both, arrowsize=0.5];
+ subgraph cluster_l {label="Local — Linux / Ubuntu"; style="rounded,filled"; fillcolor="#f2f2f2"; color="#888888";
+  l1 [label="NiFi", fillcolor="#e8f0fb"]; l2 [label="HDFS\nbronze · silver · gold", fillcolor="#f3e2d3"]; l3 [label="Spark / PySpark", fillcolor="#e8f0fb"];
+  l4 [label="Permissions HDFS\nutilisateurs Linux", fillcolor="#efe7f7"]; l5 [label="Config. protégées", fillcolor="#efe7f7"]; }
+ subgraph cluster_a {label="Cible Azure (conception logique)"; style="rounded,filled"; fillcolor="#e6f1fb"; color="#3b7dc4";
+  a1 [label="Azure Data Factory\n(étudié)", fillcolor="#ffffff"]; a2 [label="ADLS Gen2\nconteneurs bronze · silver · gold", fillcolor="#ffffff"];
+  a3 [label="Synapse Spark / SQL\n(étudié)", fillcolor="#ffffff"]; a4 [label="Entra ID · RBAC · ACL", fillcolor="#ffffff"]; a5 [label="Key Vault", fillcolor="#ffffff"]; }
+ l1 -> a1; l2 -> a2; l3 -> a3; l4 -> a4; l5 -> a5;
+}

@@ -1,0 +1,28 @@
+digraph G {
+ rankdir=LR; nodesep=0.15; ranksep=0.5; fontname="Helvetica";
+ node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled"];
+ edge [color="#888888", arrowsize=0.6];
+ subgraph cluster_u {label="Utilisateurs"; style=dashed; color="#bbbbbb";
+  node [fillcolor="#dbe9f6"];
+  DG [label="Direction générale"]; DC [label="Direction commerciale"]; RM [label="Responsable magasin"];
+  CG [label="Contrôleur de gestion"]; RS [label="Responsable stocks"]; EC [label="Responsable e-commerce"]; }
+ subgraph cluster_q {label="Questions décisionnelles"; style=dashed; color="#bbbbbb";
+  node [fillcolor="#fff4d6"];
+  Q1 [label="Q01-02 Évolution du CA,\npart des canaux"]; Q3 [label="Q03 Top produits\n/ catégories"]; Q4 [label="Q04 Effet des\npromotions"];
+  Q6 [label="Q06-07 Performance\net retours magasin"]; Q8 [label="Q08-09 CA net,\nremises, marge"]; Q10 [label="Q10-11 Niveaux\nde stock"]; Q12 [label="Q12-13 Navigation,\navis produits"]; }
+ subgraph cluster_k {label="Indicateurs"; style=dashed; color="#bbbbbb";
+  node [fillcolor="#ece2f5"];
+  K1 [label="KPI-01/06/07\nCA, évolution, part canal"]; K2 [label="KPI-02/03/04\nQuantités, transactions,\npanier moyen"]; K5 [label="KPI-05 Taux de remise"];
+  K8 [label="KPI-08/09\nRetours"]; K10 [label="KPI-10 Marge"]; K11 [label="KPI-11 Stock"]; K12 [label="KPI-12/13\nAvis, clics→vente"]; KP [label="Effet promotion\n(non calculable)", style="rounded,dashed,filled", fillcolor="#eeeeee"]; }
+ subgraph cluster_f {label="Fichiers observés (vérifiés)"; style=dashed; color="#bbbbbb";
+  node [fillcolor="#d9f2d9"];
+  F1 [label="store_sales · web_sales"]; F2 [label="item · date_dim · store"]; F3 [label="store_returns · web_returns\n· reason"]; F4 [label="inventory · warehouse"];
+  F5 [label="web_clickstreams · web_page"]; F6 [label="product_reviews"]; F7 [label="promotion"]; }
+ subgraph cluster_m {label="Sources souhaitées (absentes)"; style=dashed; color="#bbbbbb";
+  node [fillcolor="#eeeeee", style="rounded,dashed,filled"];
+  M1 [label="Mouvements de stock (WMS)"]; M2 [label="Sessions web /\najouts panier"]; M3 [label="Ventes hors promotion"]; }
+ DG->Q1; DC->Q3; DC->Q4; RM->Q6; CG->Q8; RS->Q10; EC->Q12;
+ Q1->K1; Q3->K1; Q3->K2; Q4->K5; Q4->KP; Q6->K2; Q6->K8; Q8->K1; Q8->K5; Q8->K10; Q10->K11; Q12->K12;
+ K1->F1; K1->F2; K2->F1; K5->F1; K8->F3; K10->F1; K11->F4; K12->F5; K12->F6; KP->F7;
+ K11->M1 [style=dashed]; K12->M2 [style=dashed]; KP->M3 [style=dashed];
+}
