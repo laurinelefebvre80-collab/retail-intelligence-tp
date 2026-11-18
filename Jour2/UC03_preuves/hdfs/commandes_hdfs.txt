@@ -1,0 +1,76 @@
+Script started on 2026-11-17 12:41:11+01:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="113" LINES="29"]
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -ls /[27mhdfs dfs -ls /
+[?2004l[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -mkdir -p /retail-lake/raw/tpcxbb/initial /retail-lake/raw/tpcxbb/refresh [27m[7m/[27m[7mretail-lake/raw/nifi /retail-lake/bronze/tpcxbb /retail-lake/silver /retail-lake/gold /retail-lake/quality /reta[27m[7mi[27m[7ml-lake/logs[27m[A[A]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ hdfs dfs -mkdir -p /retail-lake/raw/tpcxbb/initial /retail-lake/raw/tpcxbb/refresh /retail-lake/raw/nifi /retail-lake/bronze/tpcxbb /retail-lake/silver /retail-lake/gold /retail-lake/quality /retail-lake/logs
+[?2004l[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -ls -R /retail-lake[27mhdfs dfs -ls -R /retail-lake
+[?2004ldrwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/bronze
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/bronze/tpcxbb
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/gold
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/logs
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/quality
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/raw
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/raw/nifi
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/raw/tpcxbb
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/raw/tpcxbb/initial
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/raw/tpcxbb/refresh
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:41 /retail-lake/silver
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -du -h /retail-lake[27mhdfs dfs -du -h /retail-lake
+[?2004l0  0  /retail-lake/bronze
+0  0  /retail-lake/gold
+0  0  /retail-lake/logs
+0  0  /retail-lake/quality
+0  0  /retail-lake/raw
+0  0  /retail-lake/silver
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mls -l /mnt/c/TP_J1/retail_project/data/store_sales/[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls -l /mnt/c/TP_J1/retail_project/data/store_sales/
+[?2004ltotal 90592
+-rwxrwxrwx 1 laurine laurine 92764700 Nov 16 14:34 [0m[01;32mstore_sales.dat[0m
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhead -3 /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chead -3 /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat
+[?2004l36890|71480|10001|44404|493944|2898|44093|10|294|0|31|18.00|30.78|23.08|238.70|715.48|558.00|954.18|21.46|0.00|715.48|736.94|157.48
+36890|71480|10000|44404|493944|2898|44093|10|279|0|54|99.21|148.82|83.34|3535.92|4500.36|5357.34|8036.28|225.02|0.00|4500.36|4725.38|-856.98
+36890|71480|15556|44404|493944|2898|44093|10|114|0|39|79.49|94.59|83.24|442.65|3246.36|3100.11|3689.01|184.07|616.81|2629.55|2813.62|-470.56
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -mkdir -p /retail-lake/raw/tpcxbb/initial/store_sales[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chdfs dfs -mkdir -p /retail-lake/raw/tpcxbb/initial/store_sales
+[?2004l[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -put /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat /retail-[27m[7ml[27m[7make/raw/tpcxbb/initial/store_sales/[27m[Ahdfs dfs -put /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat /retail-lake/raw/tpcxbb/initial/store_sales/
+[?2004l[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -ls -h /retail-lake/raw/tpcxbb/initial/store_sales[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chdfs dfs -ls -h /retail-lake/raw/tpcxbb/initial/store_sales
+[?2004lFound 1 items
+-rw-r--r--   1 laurine supergroup     88.5 M 2026-11-17 12:46 /retail-lake/raw/tpcxbb/initial/store_sales/store_sales.dat
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mmd5sum /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmd5sum /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat
+[?2004ld57080160fa6a31671d1274e2c53f9e7  /mnt/c/TP_J1/retail_project/data/store_sales/store_sales.dat
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -cat /retail-lake/raw/tpcxbb/initial/store_sales/store_sales.dat | md5sum[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chdfs dfs -cat /retail-lake/raw/tpcxbb/initial/store_sales/store_sales.dat | md5sum
+[?2004ld57080160fa6a31671d1274e2c53f9e7  -
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7m15_verif_md5.png[27m^C[?2004l[?2004h[?2004l
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -put -f /mnt/c/TP_J1/retail_project/data/* /retail-lake/raw/tpcxbb/initial[27m[7m/[27m[A]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ hdfs dfs -put -f /mnt/c/TP_J1/retail_project/data/* /retail-lake/raw/tpcxbb/initial/
+[?2004l[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -put -f /mnt/c/TP_J1/retail_project/data_refresh/* /retail-lake/raw/tpcxbb[27m[7m/[27m[7mrefresh/[27m[A]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ hdfs dfs -put -f /mnt/c/TP_J1/retail_project/data_refresh/* /retail-lake/raw/tpcxbb/refresh/
+[?2004l[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [K]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [K]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -count /retail-lake/raw/tpcxbb/initial /retail-lake/raw/tpcxbb/refresh[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chdfs dfs -count /retail-lake/raw/tpcxbb/initial /retail-lake/raw/tpcxbb/refresh
+[?2004l          24           24         1024448074 /retail-lake/raw/tpcxbb/initial
+          12           12            9545513 /retail-lake/raw/tpcxbb/refresh
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -du -s -h /retail-lake/raw/tpcxbb/initial /retail-lake/raw/tpcxbb/refresh[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chdfs dfs -du -s -h /retail-lake/raw/tpcxbb/initial /retail-lake/raw/tpcxbb/refresh
+[?2004l977.0 M  977.0 M  /retail-lake/raw/tpcxbb/initial
+9.1 M    9.1 M    /retail-lake/raw/tpcxbb/refresh
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [7mhdfs dfs -ls /retail-lake/raw/tpcxbb/initial[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chdfs dfs -ls /retail-lake/raw/tpcxbb/initial
+[?2004lFound 23 items
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:51 /retail-lake/raw/tpcxbb/initial/customer
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:51 /retail-lake/raw/tpcxbb/initial/customer_address
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/customer_demographics
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/date_dim
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/household_demographics
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/income_band
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/inventory
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/item
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/item_marketprices
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/product_reviews
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/promotion
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/reason
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/ship_mode
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/store
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/store_returns
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/store_sales
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/time_dim
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/warehouse
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/web_clickstreams
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/web_page
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/web_returns
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/web_sales
+drwxr-xr-x   - laurine supergroup          0 2026-11-17 12:52 /retail-lake/raw/tpcxbb/initial/web_site
+[?2004h]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ [K]0;laurine@LAPTOP-1COFQGKS: /tmp[01;32mlaurine@LAPTOP-1COFQGKS[00m:[01;34m/tmp[00m$ exit
+[?2004lexit
+
+Script done on 2026-11-17 12:58:36+01:00 [COMMAND_EXIT_CODE="0"]
