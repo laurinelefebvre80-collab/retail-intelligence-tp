@@ -1,0 +1,5 @@
+Source,Fichier réel,Emplacement,Format,Taille (Mo),Lignes,Colonnes attendues,Colonnes par ligne (observé),Granularité,Clé candidate
+store_sales,store_sales.dat,Drive IPSSI/Cours_1_DATALAKE_DATAWAREHOUSE/TP3_retail/data/store_sales/store_sales.dat,"texte .dat, séparateur |, sans en-tête",88.5,667579,23,23 (667579 lignes),une ligne = un article vendu sur un ticket de caisse,ss_ticket_number + ss_item_sk
+item,item.dat,Drive IPSSI/Cours_1_DATALAKE_DATAWAREHOUSE/TP3_retail/data/item/item.dat,"texte .dat, séparateur |, sans en-tête",6.5,17820,22,22 (17820 lignes),une ligne = une version d'un article,i_item_sk
+store,store.dat,Drive IPSSI/Cours_1_DATALAKE_DATAWAREHOUSE/TP3_retail/data/store/store.dat,"texte .dat, séparateur |, sans en-tête",0.0,12,29,29 (12 lignes),une ligne = une version d'un magasin,s_store_sk
+date_dim,date_dim.dat,Drive IPSSI/Cours_1_DATALAKE_DATAWAREHOUSE/TP3_retail/data/date_dim/date_dim.dat,"texte .dat, séparateur |, sans en-tête",14.7,109573,28,28 (109573 lignes),une ligne = un jour du calendrier,d_date_sk

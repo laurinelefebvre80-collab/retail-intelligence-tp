@@ -1,0 +1,11 @@
+Élément,Valeur observée
+Plateforme,Google Colab
+Python,3.13.18
+Spark / PySpark,4.0.5
+Java,"openjdk version ""21.0.12.1"" 2026-08-18"
+Mode d'exécution,"local[*] (local, une seule machine)"
+Processeurs,2
+Mémoire (Go),12.7
+Données sources,/content/drive/MyDrive/IPSSI/Cours_1_DATALAKE_DATAWAREHOUSE/TP3_retail/data
+Dossier de travail,/content/tp3
+Date du traitement,2026-11-18 15:13:20

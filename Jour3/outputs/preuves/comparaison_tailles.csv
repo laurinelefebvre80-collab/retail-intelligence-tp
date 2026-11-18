@@ -1,0 +1,6 @@
+Jeu de données,Taille (octets),Taille (Mo)
+store_sales : source .dat (texte),92764700,88.47
+store_sales : Silver Parquet,46026213,43.89
+Gold magasin × mois : CSV,110925,0.11
+Gold magasin × mois : JSON,249015,0.24
+Gold magasin × mois : Parquet,20435,0.02
