@@ -1,0 +1,14 @@
+15:13:20 | Copie de store_sales.dat (92 764 700 octets)
+15:13:20 | Copie de item.dat (6 799 286 octets)
+15:13:20 | Copie de store.dat (3 386 octets)
+15:13:20 | Copie de date_dim.dat (15 395 800 octets)
+15:13:21 | Session Spark créée
+15:13:33 | Inventaire des sources réalisé
+15:16:30 | Silver écrit : silver/store_sales (4 fichier(s))
+15:16:31 | Silver écrit : silver/item (1 fichier(s))
+15:16:31 | Silver écrit : silver/store (1 fichier(s))
+15:16:34 | Silver écrit : silver/date_dim (1 fichier(s))
+15:16:34 | Quarantaine écrite : quality/rejets_store_sales (0 lignes)
+15:17:10 | Gold écrit : gold/ventes_magasin_mois (partitionné par année)
+15:17:16 | Gold écrit : gold/ventes_categorie_annee
+15:17:22 | Rapport qualité écrit : quality/rapport_qualite.csv
